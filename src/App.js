@@ -14,9 +14,9 @@ import "antd/dist/antd.css";
 import "./App.css"
 import $ from 'jquery'
 
-// const preVersionInfo = "0.0.0 Build20190101";
+// const preVersionInfo = "1.0.0 Build20190724";
 // const testVersionInfo = "0.0.0 Build20190101";
-const versionInfo = "1.0.0 Build20190724";
+const versionInfo = "0.0.0 Build20190101";
 function getCurrVersion() {
     return versionInfo
 }
