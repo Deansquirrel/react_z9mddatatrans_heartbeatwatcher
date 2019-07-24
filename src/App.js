@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Affix, LocaleProvider} from 'antd';
+import {LocaleProvider} from 'antd';
 import {message} from 'antd';
 import { Layout, Menu, Icon } from 'antd';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
@@ -171,7 +171,7 @@ class PageLoader extends React.Component {
     toggle = () => {
         this.setState({
             collapsed:!this.state.collapsed,
-        })
+        });
     };
 
     handleMenuClick = (key) => {
@@ -239,7 +239,7 @@ class PageLoader extends React.Component {
                     {mData.map((item)=>{
                         if (item.child.length > 0){
                             return (
-                                <SubMenu key={item.key} title ={<span><Icon type={item.icon} /><span>{item.title}</span></span>}>
+                                <SubMenu key={item.key} style={{backgroundColor:'transparent'}} title ={<span><Icon type={item.icon} /><span>{item.title}</span></span>}>
                                     {item.child.map((subItem)=>{
                                         return (
                                             <Menu.Item key={subItem.key} onClick={()=>this.handleMenuClick(subItem.key)}>
@@ -266,12 +266,16 @@ class PageLoader extends React.Component {
             <Layout>
                  <Sider width={256} style={{minHeight:'100vh'}} trigger={null} collapsible collapsed={collapsed}>
                      <div className="logo" />
-                     <MenuList mData={testData} defaultKey = {"title5"} defaultOpenKey={"menu2"} />
-                     <Affix className={"VersionInfo"} style={{display:this.state.collapsed?"none":"block"}} offsetBottom={16}>
-                         <span>{version}</span>
-                         <br/>
-                         <span>{wsVersion}</span>
-                     </Affix>
+                     <MenuList style={{marginBottom:'80px'}} mData={testData} defaultKey = {"title5"} defaultOpenKey={"menu2"} />
+                     <div style={{width:'100%',height:'80px',backgroundColor:'transparent'}} />
+                     <div className={"VersionInfo"} style={{display:this.state.collapsed?"none":"block"}}>
+                         <span>{version}</span><br/><span>{wsVersion}</span>
+                     </div>
+                     {/*<Affix className={"VersionInfo"} style={{display:this.state.collapsed?"none":"block"}} offsetBottom={16}>*/}
+                     {/*    <span>{version}</span>*/}
+                     {/*    <br/>*/}
+                     {/*    <span>{wsVersion}</span>*/}
+                     {/*</Affix>*/}
                  </Sider>
                 <Layout>
                     <Header style={{ background: '#fff', padding: 0 , width: '100%' }}>
