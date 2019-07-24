@@ -16,7 +16,7 @@ import $ from 'jquery'
 
 // const preVersionInfo = "0.0.0 Build20190101";
 // const testVersionInfo = "0.0.0 Build20190101";
-const versionInfo = "0.0.0 Build20190101";
+const versionInfo = "1.0.0 Build20190724";
 function getCurrVersion() {
     return versionInfo
 }
